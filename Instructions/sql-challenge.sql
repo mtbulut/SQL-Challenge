@@ -29,16 +29,26 @@ where country in ("Afghanistan", "Bangladesh", "China");
 --  so create a column in the table actor named description and use the data type BLOB (Make sure to research the type BLOB, 
 -- as the difference between it and VARCHAR are significant).
 
-select * from actor;
-
 ALTER TABLE actor
 add COLUMN description blob;
-select * from actor;
+
+
 -- 3b. Very quickly you realize that entering descriptions for each actor is too much effort. Delete the description column.
 ALTER TABLE actor
 drop COLUMN description;
 
 -- 4a. List the last names of actors, as well as how many actors have that last name.
+select last_name, count(last_name) as count_last_name from actor 
+group by last_name;
+
+-- 4b. List last names of actors and the number of actors who have that last name, but only for names 
+-- that are shared by at least two actors
+select last_name, count(last_name) as count_last_name from actor 
+where count_last_name > 1
+group by last_name;
+
+
+
 
 
 
