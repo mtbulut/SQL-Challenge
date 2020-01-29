@@ -19,4 +19,14 @@ where last_name like "%GEN%";
 -- 2c. Find all actors whose last names contain the letters LI. This time, order the rows by last name and first name, in that order: 
 select actor_id, first_name, last_name from actor
 where last_name like "%LI%"
-order by last_name and first_name;
+order by last_name,first_name;
+
+-- 2d. Using IN, display the country_id and country columns of the following countries: Afghanistan, Bangladesh, and China:
+select * from country
+where country in ("Afghanistan", "Bangladesh", "China");
+
+-- 3a. You want to keep a description of each actor. You don't think you will be performing queries on a description,
+--  so create a column in the table actor named description and use the data type BLOB (Make sure to research the type BLOB, 
+-- as the difference between it and VARCHAR are significant).
+
+
