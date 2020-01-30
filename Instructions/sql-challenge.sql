@@ -47,6 +47,19 @@ select last_name, count(last_name) as "count_last_name" from actor
 group by last_name
 having count_last_name >1;
 
+-- 4c. The actor HARPO WILLIAMS was accidentally entered in the actor table as GROUCHO WILLIAMS. Write a query to fix the record.
+
+UPDATE actor
+SET first_name='HARPO'
+WHERE last_name='WILLIAMS' and first_name = "GROUCHO";
+
+select * from actor
+where first_name = "HARPO" and last_name = 'WILLIAMS';
+
+-- 4d. Perhaps we were too hasty in changing GROUCHO to HARPO. It turns out that GROUCHO was the correct
+--  name after all! In a single query, if the first name of the actor is currently HARPO, change it to GROUCHO.
+
+
 
 
 
