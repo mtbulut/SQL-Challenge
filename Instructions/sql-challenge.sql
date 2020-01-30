@@ -75,13 +75,16 @@ select s.first_name, s.last_name, a.address from staff s
 left join address a on s.address_id = a.address_id;
 
 -- 6b. Use JOIN to display the total amount rung up by each staff member in August of 2005. Use tables staff and payment.
-select s.first_name, s.last_name, sum(p.amount) as total_amount ,p.payment_date from staff s
+select p.staff_id, s.first_name, s.last_name, sum(p.amount) as total_amount ,p.payment_date from staff s
 inner join payment p on s.staff_id = p.staff_id
 where p.payment_date like '2005-08%'
 group by p.staff_id;
 
 -- 6c. List each film and the number of actors who are listed for that film. Use tables film_actor and film. Use inner join.
-
+select f.title, count(fa.actor_id) as count_actor from film f
+inner join film_actor fa on f.film_id = fa.film_id
+group by title;
+-- select * from film_actor;
 -- 6d. How many copies of the film Hunchback Impossible exist in the inventory system?
 
 -- 6e. Using the tables payment and customer and the JOIN command, list the total paid by each customer.
