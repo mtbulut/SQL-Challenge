@@ -38,14 +38,14 @@ ALTER TABLE actor
 drop COLUMN description;
 
 -- 4a. List the last names of actors, as well as how many actors have that last name.
-select last_name, count(last_name) as count_last_name from actor 
+select last_name, count(last_name) as count_last_name from actor
 group by last_name;
 
 -- 4b. List last names of actors and the number of actors who have that last name, but only for names 
 -- that are shared by at least two actors
-select last_name, count(last_name) as count_last_name from actor 
-where count_last_name > 1
-group by last_name;
+select last_name, count(last_name) as "count_last_name" from actor 
+group by last_name
+having count_last_name >1;
 
 
 
