@@ -80,7 +80,6 @@ inner join payment p on s.staff_id = p.staff_id
 where p.payment_date like '2005-08%'
 group by p.staff_id;
 
-
 -- 6c. List each film and the number of actors who are listed for that film. Use tables film_actor and film. Use inner join.
 
 -- 6d. How many copies of the film Hunchback Impossible exist in the inventory system?
