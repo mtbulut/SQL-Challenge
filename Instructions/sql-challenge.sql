@@ -115,7 +115,14 @@ select * from actor;
 select a.actor_id, a.first_name, a.last_name from actor a
 where actor_id in (select actor_id from film_actor where film_id in (select film_id from film where title = 'Alone Trip'));
 
-);
+-- 7c. You want to run an email marketing campaign in Canada, for which you will need the names and 
+-- email addresses of all Canadian customers. Use joins to retrieve this information.
+
+-- select * from customer;
+-- select * from customer_list;
+select c.first_name, c.last_name, c.email,cl.country from customer c
+join customer_list cl on c.customer_id = cl.ID
+where cl.country = "Canada";
 
 
 
