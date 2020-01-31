@@ -110,6 +110,12 @@ where f.language_id in (select language_id
                         where name = 'English' ) 
 and (f.title like 'K%') or (f.title like 'Q%');
 
+-- 7b. Use subqueries to display all actors who appear in the film Alone Trip.
+select * from actor;
+select a.actor_id, a.first_name, a.last_name from actor a
+where actor_id in (select actor_id from film_actor where film_id in (select film_id from film where title = 'Alone Trip'));
+
+);
 
 
 
