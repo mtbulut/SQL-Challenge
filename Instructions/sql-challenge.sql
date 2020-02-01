@@ -145,6 +145,13 @@ inner join payment p on p.staff_id = st.staff_id
 group by st.store_id;
 
 -- 7g. Write a query to display for each store its store ID, city, and country.
+select s.store_id, ci.city, co.country  from store s
+inner join address a on s.address_id = a.address_id
+inner join city ci on a.city_id = ci.city_id
+inner join country co on ci.country_id = co.country_id
+
+
+
 
 -- 7h. List the top five genres in gross revenue in descending order. 
 -- (Hint: you may need to use the following tables: category, film_category, inventory, payment, and rental.)
