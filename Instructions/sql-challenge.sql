@@ -135,12 +135,21 @@ select f.title, count(*) as num_rating from film f, inventory i, rental r
 where f.film_id =i.film_id and r.inventory_id = i.inventory_id
 group by i.film_id 
 order by count(*) desc, f.title asc;
-
 -- 7f. Write a query to display how much business, in dollars, each store brought in.
+
+
+
 -- 7g. Write a query to display for each store its store ID, city, and country.
+
 -- 7h. List the top five genres in gross revenue in descending order. 
 -- (Hint: you may need to use the following tables: category, film_category, inventory, payment, and rental.)
 
+-- 8a. In your new role as an executive, you would like to have an easy way of viewing the Top five genres by gross revenue. 
+-- Use the solution from the problem above to create a view. If you haven't solved 7h, you can substitute another query to create a view.
+
+-- 8b. How would you display the view that you created in 8a?
+
+-- 8c. You find that you no longer need the view top_five_genres. Write a query to delete it.
                 
 
 
