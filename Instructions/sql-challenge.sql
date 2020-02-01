@@ -148,13 +148,18 @@ group by st.store_id;
 select s.store_id, ci.city, co.country  from store s
 inner join address a on s.address_id = a.address_id
 inner join city ci on a.city_id = ci.city_id
-inner join country co on ci.country_id = co.country_id
-
-
-
+inner join country co on ci.country_id = co.country_id;
 
 -- 7h. List the top five genres in gross revenue in descending order. 
 -- (Hint: you may need to use the following tables: category, film_category, inventory, payment, and rental.)
+select c.name, sum(p.amount) as revenue from category c
+inner join film_category fc on c.category_id = fc.category_id
+inner join inventory i on fc.film_id = i.film_id
+inner join rental r on i.inventory_id = r.inventory_id
+right join payment p on r.rental_id = p.rental_id
+group by c.name
+order by revenue desc
+limit 5; 
 
 -- 8a. In your new role as an executive, you would like to have an easy way of viewing the Top five genres by gross revenue. 
 -- Use the solution from the problem above to create a view. If you haven't solved 7h, you can substitute another query to create a view.
