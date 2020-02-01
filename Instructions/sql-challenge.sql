@@ -162,13 +162,23 @@ order by revenue desc
 limit 5; 
 
 -- 8a. In your new role as an executive, you would like to have an easy way of viewing the Top five genres by gross revenue. 
--- Use the solution from the problem above to create a view. If you haven't solved 7h, you can substitute another query to create a view.
-
+-- Use the solution from the problem above to create a view. If you haven't solved 7h, you can substitute another query to 
+-- create a view.
+drop view if exists top_five_genres;
+create view top_five_genres as
+select c.name, sum(p.amount) as revenue from category c
+inner join film_category fc on c.category_id = fc.category_id
+inner join inventory i on fc.film_id = i.film_id
+inner join rental r on i.inventory_id = r.inventory_id
+right join payment p on r.rental_id = p.rental_id
+group by c.name
+order by revenue desc
+limit 5; 
 -- 8b. How would you display the view that you created in 8a?
-
+select * from top_five_genres;
 -- 8c. You find that you no longer need the view top_five_genres. Write a query to delete it.
                 
-
+drop view top_five_genres;
 
 
 
