@@ -136,7 +136,13 @@ where f.film_id = i.film_id and r.inventory_id = i.inventory_id
 group by i.film_id 
 order by num_rating desc, f.title asc;
 -- 7f. Write a query to display how much business, in dollars, each store brought in.
--- deneme
+
+-- select sbs.store, sbs.total_sales from sales_by_store sbs;
+-- select * from payment;
+select s.store_id, sum(p.amount) from store s
+inner join staff st on s.store_id = st.store_id
+inner join payment p on p.staff_id = st.staff_id
+group by st.store_id;
 
 -- 7g. Write a query to display for each store its store ID, city, and country.
 
