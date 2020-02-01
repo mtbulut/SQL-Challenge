@@ -132,12 +132,11 @@ where fl.category = 'Family';
 
 -- 7e. Display the most frequently rented movies in descending order.
 select f.title, count(*) as num_rating from film f, inventory i, rental r
-where f.film_id =i.film_id and r.inventory_id = i.inventory_id
+where f.film_id = i.film_id and r.inventory_id = i.inventory_id
 group by i.film_id 
-order by count(*) desc, f.title asc;
+order by num_rating desc, f.title asc;
 -- 7f. Write a query to display how much business, in dollars, each store brought in.
-
-
+-- deneme
 
 -- 7g. Write a query to display for each store its store ID, city, and country.
 
